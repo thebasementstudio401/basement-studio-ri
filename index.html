@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Basement Studio | Providence, RI Event Media & Content Creation</title>
+<meta name="description" content="The Basement Studio — Providence, RI event photography and Instant Event Media. We capture it. You find it. You keep it. Book event coverage or find your event photos.">
+<meta name="theme-color" content="#0A0A0A">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Basement Studio | Capture the Moment. Find It Instantly.">
+<meta property="og:description" content="Providence, RI event photography, video, and content creation. Instant Event Media — scan, find yourself, get your photos.">
+<meta property="og:image" content="assets/logo-dark-bg.png">
+<link rel="icon" type="image/png" href="assets/logo-dark-bg.png">
+<link rel="apple-touch-icon" href="assets/logo-dark-bg.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "The Basement Studio",
+  "image": "assets/logo-dark-bg.png",
+  "areaServed": ["Providence, RI", "Rhode Island", "New England"],
+  "url": "https://basementstudio.thebasementstudio401.repl.co/",
+  "sameAs": ["https://instagram.com/"]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#0A0A0A;
+    --panel:#141414;
+    --panel-2:#1B1B1B;
+    --white:#FFFFFF;
+    --dim:#B9B9B9;
+    --gold:#F3B900;
+    --gold-dim:#C99500;
+    --line: rgba(255,255,255,0.12);
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--bg);color:var(--white);
+    font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Anton',sans-serif;font-weight:400;
+    line-height:0.98;letter-spacing:0.01em;margin:0;color:var(--white);
+    text-transform:uppercase;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{position:relative;}
+  .section-pad{padding:100px 0;}
+  .kicker{font-family:'Inter';font-weight:600;font-size:0.82rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:12px;}
+  .lede{color:var(--dim);max-width:56ch;margin-top:16px;font-size:1.05rem;}
+
+  /* Nav */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;background:linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
+  }
+  .nav.scrolled{background:rgba(8,8,8,0.94);border-bottom:1px solid var(--line);}
+  .nav-brand{display:flex;align-items:center;gap:10px;}
+  .nav-brand img{height:34px;width:auto;}
+  .nav-links{display:none;gap:26px;align-items:center;font-size:0.92rem;font-weight:500;}
+  @media(min-width:900px){ .nav-links{display:flex;} }
+  .nav-links a:hover{color:var(--gold);}
+  .nav-cta{display:flex;gap:10px;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 22px;font-weight:700;font-size:0.88rem;letter-spacing:0.03em;
+    border-radius:2px;border:1px solid var(--line);white-space:nowrap;text-transform:uppercase;
+  }
+  .btn-gold{background:var(--gold);color:#0A0A0A;border-color:var(--gold);}
+  .btn-gold:hover{background:#ffcc2e;}
+  .btn-outline{color:var(--white);border-color:rgba(255,255,255,0.4);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+  .btn-block{width:100%;}
+
+  /* Hero */
+  .hero{height:100svh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden;}
+  .hero-media{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;}
+  .hero-media video,.hero-media .poster-img{
+    position:absolute;top:50%;left:50%;width:100%;height:100%;object-fit:cover;transform:translate(-50%,-50%);
+  }
+  .hero-scrim{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(to top, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.6) 35%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.55) 100%);
+  }
+  .hero-content{position:relative;z-index:2;padding:0 24px 60px;width:100%;}
+  .hero h1{font-size:clamp(2.6rem, 8.6vw, 5.6rem);}
+  .hero h1 .gold{color:var(--gold);}
+  .hero-sub{margin-top:18px;max-width:520px;font-size:1.08rem;color:var(--dim);}
+  .hero-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;}
+  .scroll-cue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;
+    width:1px;height:44px;background:linear-gradient(to bottom, transparent, var(--gold));}
+
+  /* How it works */
+  .steps{display:grid;grid-template-columns:1fr;gap:0;margin-top:52px;border:1px solid var(--line);}
+  @media(min-width:800px){ .steps{grid-template-columns:repeat(4,1fr);} }
+  .step{padding:34px 26px;border-top:1px solid var(--line);}
+  @media(min-width:800px){
+    .step{border-top:none;}
+    .step + .step{border-left:1px solid var(--line);}
+  }
+  .step .num{font-family:'Anton';font-size:2.4rem;color:var(--gold);}
+  .step h3{font-size:1.1rem;margin-top:10px;}
+  .step p{color:var(--dim);font-size:0.95rem;margin-top:8px;}
+
+  /* Event type grid */
+  .event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:44px;background:var(--line);border:1px solid var(--line);}
+  @media(min-width:700px){ .event-grid{grid-template-columns:repeat(4,1fr);} }
+  .event-tile{background:var(--panel);padding:22px 18px;font-family:'Anton';font-size:1rem;letter-spacing:0.02em;text-transform:uppercase;}
+
+  /* Section: Find My Photos */
+  .fmp{background:var(--panel);}
+  .fmp-hero{
+    display:flex;flex-direction:column;align-items:flex-start;gap:18px;
+  }
+  .filter-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px;}
+  .filter-btn{
+    padding:8px 16px;border:1px solid var(--line);border-radius:20px;font-size:0.85rem;font-weight:600;
+    color:var(--dim);cursor:pointer;background:transparent;
+  }
+  .filter-btn.active, .filter-btn:hover{border-color:var(--gold);color:var(--gold);}
+  .event-cards{display:grid;grid-template-columns:1fr;gap:20px;margin-top:28px;}
+  @media(min-width:700px){ .event-cards{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:1050px){ .event-cards{grid-template-columns:repeat(3,1fr);} }
+  .event-card{border:1px solid var(--line);background:var(--bg);overflow:hidden;}
+  .event-card .thumb{aspect-ratio:4/3;overflow:hidden;position:relative;}
+  .event-card .thumb img{width:100%;height:100%;object-fit:cover;}
+  .event-card .thumb .tag{
+    position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.7);color:var(--gold);
+    font-size:0.72rem;font-weight:700;padding:4px 10px;text-transform:uppercase;letter-spacing:0.04em;
+  }
+  .event-card .body{padding:18px;}
+  .event-card h4{font-family:'Inter';font-weight:700;font-size:1.02rem;}
+  .event-card .meta{color:var(--dim);font-size:0.86rem;margin-top:6px;}
+  .event-card .btn{margin-top:16px;}
+  .fmp-note{margin-top:20px;font-size:0.85rem;color:var(--dim);}
+
+  /* Cross-sell services */
+  .services-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:48px;}
+  @media(min-width:860px){ .services-grid{grid-template-columns:repeat(3,1fr);} }
+  .service-card{border:1px solid var(--line);overflow:hidden;}
+  .service-card .thumb{aspect-ratio:4/3;overflow:hidden;}
+  .service-card .thumb img{width:100%;height:100%;object-fit:cover;}
+  .service-card .body{padding:24px;}
+  .service-card h3{font-size:1.4rem;}
+  .service-card p{color:var(--dim);font-size:0.95rem;margin-top:10px;}
+  .service-card .btn{margin-top:18px;}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center;}
+  @media(min-width:880px){ .about-grid{grid-template-columns:1fr 1fr;} }
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px;}
+  .pillar{border:1px solid var(--line);padding:14px 16px;font-weight:700;font-size:0.9rem;letter-spacing:0.02em;}
+
+  /* Social proof */
+  .proof-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:40px;}
+  @media(min-width:800px){ .proof-grid{grid-template-columns:repeat(2,1fr);} }
+  .proof-card{border:1px dashed var(--line);padding:26px;color:var(--dim);font-size:0.95rem;}
+  .proof-card b{display:block;color:var(--white);margin-bottom:6px;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase;}
+
+  /* Contact / quote form */
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:48px;}
+  @media(min-width:920px){ .contact-grid{grid-template-columns:1fr 1.2fr;} }
+  .contact-info a{display:block;color:var(--dim);margin-top:10px;font-size:0.98rem;}
+  .contact-info a:hover{color:var(--gold);}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  form .full{grid-column:1/-1;}
+  label{display:block;font-size:0.8rem;color:var(--dim);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.03em;}
+  input,select,textarea{
+    width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--white);
+    padding:12px 14px;font-family:'Inter';font-size:0.95rem;border-radius:2px;
+  }
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);}
+  textarea{resize:vertical;min-height:90px;}
+  .check-row{display:flex;gap:24px;align-items:center;grid-column:1/-1;}
+  .check-row label{display:flex;align-items:center;gap:8px;font-size:0.9rem;text-transform:none;color:var(--white);margin:0;}
+  .check-row input{width:auto;}
+
+  footer{padding:60px 0 36px;border-top:1px solid var(--line);}
+  .foot-grid{display:grid;grid-template-columns:1fr;gap:32px;}
+  @media(min-width:760px){ .foot-grid{grid-template-columns:1.3fr 1fr 1fr;} }
+  .foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .foot-brand img{height:32px;}
+  .foot-col h4{font-size:0.82rem;color:var(--dim);letter-spacing:0.05em;margin-bottom:14px;text-transform:uppercase;}
+  .foot-col a{display:block;font-size:0.95rem;color:var(--dim);margin-bottom:9px;}
+  .foot-col a:hover{color:var(--gold);}
+  .foot-bottom{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:0.8rem;color:var(--dim);opacity:0.7;}
+
+  .depth{will-change:transform;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .depth{transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="#top"><img src="assets/logo-dark-bg.png" alt="The Basement Studio"></a>
+  <div class="nav-links">
+    <a href="#event-media">Instant Event Media</a>
+    <a href="#find-photos" style="color:var(--gold);">Find My Photos</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a class="btn btn-gold" href="#contact">Get a Quote</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-media">
+    <video autoplay muted loop playsinline id="heroVideo"
+      poster="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_9261e982-cc56-4cbb-94d9-f6a4f999a2f6.png">
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043305_4ba56ef3-f9cb-4e85-9437-0bccb59d6731.mp4" type="video/mp4" id="heroSrc">
+    </video>
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="hero-content wrap">
+    <h1>Capture The Moment.<br><span class="gold">Find It Instantly.</span></h1>
+    <p class="hero-sub">Modern event photography built for the way people experience and share moments today. We capture it. You find it. You keep it.</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#contact">Book Event Coverage</a>
+      <a class="btn btn-outline" href="#find-photos">Find My Photos</a>
+    </div>
+  </div>
+  <div class="scroll-cue"></div>
+</header>
+
+<section class="section-pad" id="event-media">
+  <div class="wrap">
+    <div class="kicker">Instant Event Media</div>
+    <h2 style="font-size:clamp(2rem,4.6vw,3.4rem);max-width:16ch;">Event photography, reimagined.</h2>
+    <p class="lede">We professionally cover your event — then guests find themselves in seconds. No waiting weeks for a photo drop. No digging through a shared folder.</p>
+
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>We Capture</h3><p>The Basement Studio professionally photographs your event.</p></div>
+      <div class="step"><div class="num">02</div><h3>You Scan</h3><p>Guests scan a QR code with their phone — no app required.</p></div>
+      <div class="step"><div class="num">03</div><h3>Find Yourself</h3><p>Selfie search locates your photos in the event gallery instantly.</p></div>
+      <div class="step"><div class="num">04</div><h3>Get Your Photos</h3><p>View, download, purchase, and share — right from your phone.</p></div>
+    </div>
+
+    <div class="event-grid">
+      <div class="event-tile">Sports</div><div class="event-tile">Tournaments</div>
+      <div class="event-tile">Corporate</div><div class="event-tile">Weddings</div>
+      <div class="event-tile">Birthdays</div><div class="event-tile">Graduations</div>
+      <div class="event-tile">School Events</div><div class="event-tile">Community</div>
+      <div class="event-tile">Festivals</div><div class="event-tile">Concerts</div>
+      <div class="event-tile">Nightlife</div><div class="event-tile">Brand Events</div>
+      <div class="event-tile">Pop-Ups</div><div class="event-tile">Private Events</div>
+      <div class="event-tile">Large Gatherings</div><div class="event-tile">+ More</div>
+    </div>
+
+    <div style="margin-top:44px;display:flex;flex-wrap:wrap;gap:16px;">
+      <a class="btn btn-gold" href="#contact">Request Event Quote</a>
+      <a class="btn btn-outline" href="#contact">Schedule Consultation</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad fmp" id="find-photos">
+  <div class="wrap">
+    <div class="fmp-hero">
+      <div class="kicker">Event Guests</div>
+      <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);">Your moment is waiting.</h2>
+      <p class="lede">Attended an event covered by The Basement Studio? Find your event below and get your photos through our Instant Gallery.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+      <button class="filter-btn" data-filter="corporate">Corporate</button>
+      <button class="filter-btn" data-filter="wedding">Wedding</button>
+      <button class="filter-btn" data-filter="nightlife">Nightlife</button>
+      <button class="filter-btn" data-filter="community">Community</button>
+    </div>
+
+    <div class="event-cards" id="eventCards">
+      <div class="event-card" data-type="sports">
+        <div class="thumb"><span class="tag">Sports</span>
+          <img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_6199f1b6-e8b0-42e9-9178-361fb6b541ee.png" alt="Sample sports event"></div>
+        <div class="body">
+          <h4>[Sample Event Name]</h4>
+          <div class="meta">Add event date · Add location</div>
+          <a class="btn btn-outline btn-block" href="#" onclick="return false;">View Photos</a>
+        </div>
+      </div>
+      <div class="event-card" data-type="wedding">
+        <div class="thumb"><span class="tag">Wedding</span>
+          <img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_79f692ea-d941-495a-bcdd-5e107cf6ce66.png" alt="Sample wedding event"></div>
+        <div class="body">
+          <h4>[Sample Event Name]</h4>
+          <div class="meta">Add event date · Add location</div>
+          <a class="btn btn-outline btn-block" href="#" onclick="return false;">View Photos</a>
+        </div>
+      </div>
+      <div class="event-card" data-type="corporate">
+        <div class="thumb"><span class="tag">Corporate</span>
+          <img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043318_1372ce2e-89b4-4bd2-b594-01959e63d989.png" alt="Sample corporate event"></div>
+        <div class="body">
+          <h4>[Sample Event Name]</h4>
+          <div class="meta">Add event date · Add location</div>
+          <a class="btn btn-outline btn-block" href="#" onclick="return false;">View Photos</a>
+        </div>
+      </div>
+      <div class="event-card" data-type="nightlife">
+        <div class="thumb"><span class="tag">Nightlife</span>
+          <img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_9261e982-cc56-4cbb-94d9-f6a4f999a2f6.png" alt="Sample nightlife event"></div>
+        <div class="body">
+          <h4>[Sample Event Name]</h4>
+          <div class="meta">Add event date · Add location</div>
+          <a class="btn btn-outline btn-block" href="#" onclick="return false;">View Photos</a>
+        </div>
+      </div>
+    </div>
+    <p class="fmp-note">Sample layout — connect each event's Zno Instant Gallery link to make "View Photos" live. Real events replace these placeholders as they're added.</p>
+  </div>
+</section>
+
+<section class="section-pad" id="services">
+  <div class="wrap">
+    <div class="kicker">More Than Events</div>
+    <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);max-width:18ch;">Need us at your event? We do more than events.</h2>
+    <p class="lede">Content creation, lifestyle sessions, and full studio production — for businesses, brands, creators, and anyone building something worth capturing.</p>
+
+    <div class="services-grid">
+      <div class="service-card depth" data-depth="0.05">
+        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043318_f4167de5-145e-49aa-9610-81ed2781dc37.png" alt="Content creation shoot"></div>
+        <div class="body">
+          <h3>Content Creation</h3>
+          <p>Social content, short-form video, brand photography, and monthly content production for businesses and creators.</p>
+          <a class="btn btn-gold" href="#contact">Create With Us</a>
+        </div>
+      </div>
+      <div class="service-card depth" data-depth="0.08">
+        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_b377e3e9-e50e-459b-b9f0-5cb59df87cea.png" alt="Lifestyle photo session"></div>
+        <div class="body">
+          <h3>Lifestyle Photo + Video</h3>
+          <p>Flexible coverage outside the studio — personal branding, fitness, fashion, automotive, couples, and family sessions.</p>
+          <a class="btn btn-gold" href="#contact">Book A Shoot</a>
+        </div>
+      </div>
+      <div class="service-card depth" data-depth="0.05">
+        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_b2f9f126-718a-470c-8c0b-010f5d60eb6d.png" alt="Studio production"></div>
+        <div class="body">
+          <h3>Studio</h3>
+          <p>Portraits, headshots, branding, product, and fashion work — professional in-studio creative production.</p>
+          <a class="btn btn-gold" href="#contact">Book The Studio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="about" style="background:var(--panel);">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="kicker">Our Story</div>
+        <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);">Built from the basement.</h2>
+        <p class="lede">The Basement represents the work that happens before anyone sees the results. The name comes from the basement where the mentality of working, training, creating, and putting in the work was developed — a mentality that grew through creativity, entrepreneurship, music and media production, photography, video, and content creation, and eventually into modern event media.</p>
+        <p class="lede" style="font-family:'Anton';font-size:1.3rem;color:var(--white);text-transform:uppercase;margin-top:22px;">Built different. Built from the basement.</p>
+        <div class="pillars">
+          <div class="pillar">Work Ethic</div>
+          <div class="pillar">Creativity</div>
+          <div class="pillar">Consistency</div>
+          <div class="pillar">Growth</div>
+          <div class="pillar">Entrepreneurship</div>
+          <div class="pillar">Ground Up</div>
+        </div>
+      </div>
+      <div class="depth" data-depth="0.06" style="border:1px solid var(--line);aspect-ratio:4/3;overflow:hidden;">
+        <img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043318_49eb7fb8-550d-4a9e-8fcf-f05c7a1675cf.png" alt="Professional camera equipment" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-card"><b>Client Testimonial</b>[Space reserved for a real client testimonial — add once available.]</div>
+      <div class="proof-card"><b>Organizations We Work With</b>[Space reserved for client/organization logos — add once available.]</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="contact">
+  <div class="wrap">
+    <div class="kicker">Get In Touch</div>
+    <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);max-width:14ch;">Book your date or request a quote.</h2>
+    <p class="lede">Tell us about your event, shoot, or project — we'll follow up to confirm details and, if needed, set up a quick consultation call.</p>
+
+    <div class="contact-grid" style="margin-top:44px;">
+      <div class="contact-info">
+        <h3 style="font-size:1.1rem;font-family:'Inter';font-weight:700;text-transform:uppercase;letter-spacing:0.03em;">Contact</h3>
+        <a href="mailto:hello@thebasementstudio.co">hello@thebasementstudio.co</a>
+        <a href="tel:+14015550142">(401) 555-0142</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">@thebasementstudio</a>
+        <p style="color:var(--dim);margin-top:18px;font-size:0.92rem;">Serving Providence, Rhode Island · New England — travel available.</p>
+      </div>
+
+      <form id="quoteForm" action="mailto:hello@thebasementstudio.co" method="POST" enctype="text/plain">
+        <div class="full"><label>Name</label><input type="text" name="name" required></div>
+        <div><label>Email</label><input type="email" name="email" required></div>
+        <div><label>Phone</label><input type="tel" name="phone"></div>
+        <div class="full"><label>Business / Organization</label><input type="text" name="org"></div>
+        <div><label>Event Name</label><input type="text" name="event_name"></div>
+        <div>
+          <label>Event Type</label>
+          <select name="event_type">
+            <option>Sports</option><option>Corporate</option><option>Wedding</option>
+            <option>Birthday</option><option>Graduation</option><option>School Event</option>
+            <option>Community</option><option>Festival / Concert</option><option>Nightlife</option>
+            <option>Brand Event</option><option>Private Event</option><option>Other</option>
+          </select>
+        </div>
+        <div><label>Event Date</label><input type="date" name="event_date"></div>
+        <div><label>Estimated Attendance</label><input type="text" name="attendance"></div>
+        <div><label>Start Time</label><input type="time" name="start_time"></div>
+        <div><label>End Time</label><input type="time" name="end_time"></div>
+        <div class="full"><label>Event Location</label><input type="text" name="location"></div>
+        <div class="check-row">
+          <label><input type="checkbox" name="need_photo"> Photography Needed</label>
+          <label><input type="checkbox" name="need_video"> Video Needed</label>
+        </div>
+        <div class="full"><label>Tell Us About Your Event</label><textarea name="details" placeholder="Special requests, vision, or anything else we should know"></textarea></div>
+        <div class="full"><button type="submit" class="btn btn-gold btn-block">Request A Quote</button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="assets/logo-dark-bg.png" alt="The Basement Studio"></div>
+        <p style="max-width:34ch;color:var(--dim);font-size:0.92rem;">Providence, RI event media and creative production. We capture it. You find it. You keep it.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#event-media">Instant Event Media</a>
+        <a href="#find-photos">Find My Photos</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:hello@thebasementstudio.co">hello@thebasementstudio.co</a>
+        <a href="tel:+14015550142">(401) 555-0142</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© The Basement Studio — Providence, RI. Built different. Built from the basement.</div>
+  </div>
+</footer>
+
+<script>
+  var nav=document.getElementById('nav');
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function onScroll(){
+    if(window.scrollY>40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+    if(!reduceMotion){
+      var els=document.querySelectorAll('.depth');
+      var vh=window.innerHeight;
+      for(var i=0;i<els.length;i++){
+        var el=els[i];var rect=el.getBoundingClientRect();
+        var progress=(vh-rect.top)/(vh+rect.height);
+        var depth=parseFloat(el.getAttribute('data-depth'))||0.05;
+        var shift=(progress-0.5)*depth*vh;
+        el.style.transform='translateY('+shift.toFixed(1)+'px)';
+      }
+    }
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+
+  var v=document.getElementById('heroVideo');
+  if(v){ v.play().catch(function(){}); }
+
+  // Event filters
+  var filterBtns=document.querySelectorAll('.filter-btn');
+  var cards=document.querySelectorAll('.event-card');
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      filterBtns.forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var f=btn.getAttribute('data-filter');
+      cards.forEach(function(c){
+        c.style.display=(f==='all'||c.getAttribute('data-type')===f)?'':'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
