@@ -148,6 +148,18 @@
   .event-card .meta{color:var(--dim);font-size:0.86rem;margin-top:6px;}
   .event-card .btn{margin-top:16px;}
   .fmp-note{margin-top:20px;font-size:0.85rem;color:var(--dim);}
+  .grow-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:48px;}
+  @media(min-width:860px){ .grow-grid{grid-template-columns:1.2fr 1fr;} }
+  .grow-col h3{font-family:'Inter';font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.03em;color:var(--gold);margin-bottom:16px;}
+  .check-list{list-style:none;margin:0;padding:0;}
+  .check-list li{
+    position:relative;padding:10px 0 10px 26px;border-top:1px solid var(--line);
+    font-size:0.96rem;color:var(--dim);
+  }
+  .check-list li:first-child{border-top:none;}
+  .check-list li::before{
+    content:"";position:absolute;left:0;top:18px;width:8px;height:8px;background:var(--gold);
+  }
 
   /* Cross-sell services */
   .services-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:48px;}
@@ -277,19 +289,45 @@
   <div class="wrap">
     <div class="fmp-hero">
       <div class="kicker">Beyond Event Coverage</div>
-      <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);max-width:16ch;">We help you grow, not just remember the day.</h2>
-      <p class="lede">Event coverage is where most people meet us — but The Basement Studio also partners with businesses and creators long after the event ends.</p>
+      <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);max-width:18ch;">The 90-Day Business &amp; Creator Growth Initiative.</h2>
+      <p class="lede">Every 90 days, The Basement Studio selects five businesses to receive professional content creation, marketing strategy, and paid advertising support — at no service cost. Selected businesses cover their own ad spend; we provide the creative, strategy, and campaign work.</p>
     </div>
 
-    <div class="services-grid" style="margin-top:44px;">
-      <div class="service-card" style="border-color:var(--gold);grid-column:1/-1;display:grid;grid-template-columns:1fr;gap:0;">
-        <div class="body" style="padding:34px;">
-          <div class="kicker" style="margin-bottom:6px;">Lead Program · For Businesses &amp; Creators</div>
-          <h3 style="font-size:1.6rem;">Business Investment Program</h3>
-          <p style="max-width:60ch;">[Placeholder — real program details needed. This is where we'll describe how the Business Investment Program works, who it's for, and what businesses/creators get from partnering with us. Send over the real pitch and we'll drop it in here.]</p>
-          <a class="btn btn-gold" href="#contact">Learn About The Program</a>
-        </div>
+    <div class="grow-grid">
+      <div class="grow-col">
+        <h3>What Selected Businesses Receive</h3>
+        <ul class="check-list">
+          <li>A complete social media audit</li>
+          <li>A customized 90-day marketing roadmap</li>
+          <li>Professional photo and video content creation</li>
+          <li>A social media content strategy</li>
+          <li>Campaign and promotional planning</li>
+          <li>Paid advertising setup</li>
+          <li>Lead-generation campaign development</li>
+          <li>Ad tracking and performance monitoring</li>
+          <li>Campaign optimization based on results</li>
+          <li>Lead-capture and follow-up recommendations</li>
+          <li>Ongoing strategy and performance reviews</li>
+        </ul>
       </div>
+      <div class="grow-col">
+        <h3>Who Should Apply</h3>
+        <ul class="check-list">
+          <li>Startups, entrepreneurs, creators, and established small businesses</li>
+          <li>Offer a strong product or service</li>
+          <li>Are ready to grow and attract new customers</li>
+          <li>Need better content and a clearer marketing strategy</li>
+          <li>Are prepared to communicate and participate consistently</li>
+          <li>Can properly handle the new leads generated through the program</li>
+          <li>Are willing to follow the recommended 90-day roadmap</li>
+        </ul>
+        <h3 style="margin-top:28px;">How Selection Works</h3>
+        <p style="color:var(--dim);font-size:0.95rem;">Businesses begin by completing a qualification form. Applications are reviewed on the strength of the business, growth potential, readiness, and overall fit. Only five businesses are selected per 90-day cycle.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <a class="btn btn-gold" href="#contact">Apply For The Next 90-Day Cycle</a>
     </div>
   </div>
 </section>
