@@ -213,9 +213,19 @@
   .foot-bottom{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:0.8rem;color:var(--dim);opacity:0.7;}
 
   .depth{will-change:transform;}
+
+  .reveal{
+    opacity:0;transform:translateY(28px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+  .services-grid .reveal:nth-child(2){transition-delay:0.08s;}
+  .services-grid .reveal:nth-child(3){transition-delay:0.16s;}
+
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     .depth{transform:none !important;}
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important;}
   }
 </style>
 </head>
@@ -225,10 +235,9 @@
   <a class="nav-brand" href="#top"><img src="assets/logo-dark-bg.png" alt="The Basement Studio"></a>
   <div class="nav-links">
     <a href="#event-media">Instant Event Media</a>
-    <a href="#contact" style="color:var(--gold);">Find My Photos</a>
+    <a href="#grow">Business + Creator Content</a>
     <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="https://thebasementstudio401.mypixhome.com" target="_blank" rel="noopener" style="color:var(--gold);">Find My Photos</a>
   </div>
   <div class="nav-cta">
     <a class="btn btn-gold" href="#contact">Get a Quote</a>
@@ -248,7 +257,7 @@
     <p class="hero-sub">Modern event photography built for the way people experience and share moments today. We capture it. You find it. You keep it.</p>
     <div class="hero-actions">
       <a class="btn btn-gold" href="#contact">Book Event Coverage</a>
-      <a class="btn btn-outline" href="#contact">Find My Photos</a>
+      <a class="btn btn-outline" href="https://thebasementstudio401.mypixhome.com" target="_blank" rel="noopener">Find My Photos</a>
     </div>
   </div>
   <div class="scroll-cue"></div>
@@ -256,11 +265,11 @@
 
 <section class="section-pad" id="event-media">
   <div class="wrap">
-    <div class="kicker">Instant Event Media</div>
-    <h2 style="font-size:clamp(2rem,4.6vw,3.4rem);max-width:16ch;">Event photography, reimagined.</h2>
-    <p class="lede">We professionally cover your event — then guests find themselves in seconds. No waiting weeks for a photo drop. No digging through a shared folder.</p>
+    <div class="kicker reveal">Instant Event Media</div>
+    <h2 class="reveal" style="font-size:clamp(2rem,4.6vw,3.4rem);max-width:16ch;">Event photography, reimagined.</h2>
+    <p class="lede reveal">We professionally cover your event — then guests find themselves in seconds. No waiting weeks for a photo drop. No digging through a shared folder.</p>
 
-    <div class="steps">
+    <div class="steps reveal">
       <div class="step"><div class="num">01</div><h3>We Capture</h3><p>The Basement Studio professionally photographs your event.</p></div>
       <div class="step"><div class="num">02</div><h3>You Scan</h3><p>Guests scan a QR code with their phone — no app required.</p></div>
       <div class="step"><div class="num">03</div><h3>Find Yourself</h3><p>Selfie search locates your photos in the event gallery instantly.</p></div>
@@ -287,13 +296,13 @@
 
 <section class="section-pad fmp" id="grow">
   <div class="wrap">
-    <div class="fmp-hero">
+    <div class="fmp-hero reveal">
       <div class="kicker">Beyond Event Coverage</div>
       <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);max-width:18ch;">The 90-Day Business &amp; Creator Growth Initiative.</h2>
       <p class="lede">Every 90 days, The Basement Studio selects five businesses to receive professional content creation, marketing strategy, and paid advertising support — at no service cost. Selected businesses cover their own ad spend; we provide the creative, strategy, and campaign work.</p>
     </div>
 
-    <div class="grow-grid">
+    <div class="grow-grid reveal">
       <div class="grow-col">
         <h3>What Selected Businesses Receive</h3>
         <ul class="check-list">
@@ -333,45 +342,10 @@
   </div>
 </section>
 
-<section class="section-pad" id="services">
-  <div class="wrap">
-    <div class="kicker">More Than Events</div>
-    <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);max-width:18ch;">Need us at your event? We do more than events.</h2>
-    <p class="lede">Content creation, lifestyle sessions, and full studio production — for businesses, brands, creators, and anyone building something worth capturing.</p>
-
-    <div class="services-grid">
-      <div class="service-card depth" data-depth="0.05">
-        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043318_f4167de5-145e-49aa-9610-81ed2781dc37.png" alt="Content creation shoot"></div>
-        <div class="body">
-          <h3>Content Creation</h3>
-          <p>Social content, short-form video, brand photography, and monthly content production for businesses and creators.</p>
-          <a class="btn btn-gold" href="#contact">Create With Us</a>
-        </div>
-      </div>
-      <div class="service-card depth" data-depth="0.08">
-        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_b377e3e9-e50e-459b-b9f0-5cb59df87cea.png" alt="Lifestyle photo session"></div>
-        <div class="body">
-          <h3>Lifestyle Photo + Video</h3>
-          <p>Flexible coverage outside the studio — personal branding, fitness, fashion, automotive, couples, and family sessions.</p>
-          <a class="btn btn-gold" href="#contact">Book A Shoot</a>
-        </div>
-      </div>
-      <div class="service-card depth" data-depth="0.05">
-        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_b2f9f126-718a-470c-8c0b-010f5d60eb6d.png" alt="Studio production"></div>
-        <div class="body">
-          <h3>Studio</h3>
-          <p>Portraits, headshots, branding, product, and fashion work — professional in-studio creative production.</p>
-          <a class="btn btn-gold" href="#contact">Book The Studio</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="section-pad" id="about" style="background:var(--panel);">
   <div class="wrap">
     <div class="about-grid">
-      <div>
+      <div class="reveal">
         <div class="kicker">Our Story</div>
         <h2 style="font-size:clamp(2rem,4.6vw,3.2rem);">Built from the basement.</h2>
         <p class="lede">The Basement represents the work that happens before anyone sees the results. The name comes from the basement where the mentality of working, training, creating, and putting in the work was developed — a mentality that grew through creativity, entrepreneurship, music and media production, photography, video, and content creation, and eventually into modern event media.</p>
@@ -385,7 +359,7 @@
           <div class="pillar">Ground Up</div>
         </div>
       </div>
-      <div class="depth" data-depth="0.06" style="border:1px solid var(--line);aspect-ratio:4/3;overflow:hidden;">
+      <div class="depth reveal" data-depth="0.06" style="border:1px solid var(--line);aspect-ratio:4/3;overflow:hidden;">
         <img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043318_49eb7fb8-550d-4a9e-8fcf-f05c7a1675cf.png" alt="Professional camera equipment" style="width:100%;height:100%;object-fit:cover;">
       </div>
     </div>
@@ -393,6 +367,41 @@
     <div class="proof-grid">
       <div class="proof-card"><b>Client Testimonial</b>[Space reserved for a real client testimonial — add once available.]</div>
       <div class="proof-card"><b>Organizations We Work With</b>[Space reserved for client/organization logos — add once available.]</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" id="services">
+  <div class="wrap">
+    <div class="kicker reveal">All Services</div>
+    <h2 class="reveal" style="font-size:clamp(2rem,4.6vw,3.2rem);max-width:18ch;">Content, lifestyle, and studio work — beyond the event.</h2>
+    <p class="lede reveal">Content creation, lifestyle sessions, and full studio production — for businesses, brands, creators, and anyone building something worth capturing.</p>
+
+    <div class="services-grid">
+      <div class="service-card depth reveal" data-depth="0.05">
+        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043318_f4167de5-145e-49aa-9610-81ed2781dc37.png" alt="Content creation shoot"></div>
+        <div class="body">
+          <h3>Content Creation</h3>
+          <p>Social content, short-form video, brand photography, and monthly content production for businesses and creators.</p>
+          <a class="btn btn-gold" href="#contact">Create With Us</a>
+        </div>
+      </div>
+      <div class="service-card depth reveal" data-depth="0.08">
+        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_b377e3e9-e50e-459b-b9f0-5cb59df87cea.png" alt="Lifestyle photo session"></div>
+        <div class="body">
+          <h3>Lifestyle Photo + Video</h3>
+          <p>Flexible coverage outside the studio — personal branding, fitness, fashion, automotive, couples, and family sessions.</p>
+          <a class="btn btn-gold" href="#contact">Book A Shoot</a>
+        </div>
+      </div>
+      <div class="service-card depth reveal" data-depth="0.05">
+        <div class="thumb"><img loading="lazy" src="https://d8j0ntlcm91z4.cloudfront.net/user_38MB2hcYsoi7aypTECeETsFjxbH/hf_20260902_043319_b2f9f126-718a-470c-8c0b-010f5d60eb6d.png" alt="Studio production"></div>
+        <div class="body">
+          <h3>Studio</h3>
+          <p>Portraits, headshots, branding, product, and fashion work — professional in-studio creative production.</p>
+          <a class="btn btn-gold" href="#contact">Book The Studio</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -453,7 +462,7 @@
       <div class="foot-col">
         <h4>Explore</h4>
         <a href="#event-media">Instant Event Media</a>
-        <a href="#contact">Find My Photos</a>
+        <a href="https://thebasementstudio401.mypixhome.com" target="_blank" rel="noopener">Find My Photos</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
       </div>
@@ -492,6 +501,22 @@
 
   var v=document.getElementById('heroVideo');
   if(v){ v.play().catch(function(){}); }
+
+  // Scroll reveal
+  if(!reduceMotion && 'IntersectionObserver' in window){
+    var revealEls=document.querySelectorAll('.reveal');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.15,rootMargin:'0px 0px -8% 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in-view'); });
+  }
 </script>
 
 </body>
